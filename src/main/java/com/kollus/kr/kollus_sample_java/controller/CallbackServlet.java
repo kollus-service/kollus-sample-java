@@ -40,7 +40,7 @@ import com.kollus.kr.kollus_sample_java.util.StringUtil;
  * DRM, PLAY, LMS 등 분기로 처리함
  * kollus - 콜백 등록시
  * http://localhost/callbak/[lms|mdrm|pdrm|play|upload|transcoding|update|add|delete]
- * 콜백 유형에 대한 정보는 {@see CallbackMethod}를 참조함
+ * 콜백 유형에 대한 정보는 CallbackMethod 를 참조함
  * @author Yang Hyeon Deok
  * @since 2017. 7. 6.
  */

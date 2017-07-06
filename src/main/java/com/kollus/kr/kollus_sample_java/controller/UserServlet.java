@@ -27,7 +27,7 @@ import com.kollus.kr.kollus_sample_java.util.HttpUtil;
 
 /**
  * 사용자 정보 처리 서블릿
- * 참조 클래스는 {@see UserConf}
+ * 참조 클래스는  UserConf 임
  * @author Yang Hyeon Deok
  * @since 2017. 7. 6.
  */
