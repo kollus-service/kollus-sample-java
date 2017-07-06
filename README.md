@@ -25,8 +25,8 @@ Runtime Environment
 Configuration Files
 -
 >
-*/src/main/webapp/files/user.properties : Kollus 계정정보 파일
-*/src/main/webapp/files/policy/default.json : Kollus callback 정책 설정 파일
+* /src/main/webapp/files/user.properties : Kollus 계정정보 파일
+* /src/main/webapp/files/policy/default.json : Kollus callback 정책 설정 파일
 
 How to run
 -
