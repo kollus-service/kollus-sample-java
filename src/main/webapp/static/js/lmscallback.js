@@ -27,10 +27,12 @@ var ws_connect = function() {
 		var responseBody = jsonObject.response ? jsonObject.response : "";
 		var responseJson = jsonObject.responseJson ? jsonObject.responseJson : "";
 		if (type == 'LMS' || type == 'lms') {
-			var content_info = JSON.parse(requestBody).content_info;
-			var block_info = JSON.parse(requestBody).block_info;
+			var json_data = JSON.parse(JSON.parse(requestBody).json_data);
+			var content_info = json_data.content_info;
+			var block_info = json_data.block_info;
+			var user_data = JSON.parse(requestBody).user;
 			if (content_info.media_content_key == $('#td_mck').html()) {
-				$('#tt_json').html(requestBody);
+				$('#tt_json').html(JSON.stringify(json_data, null, 4));
 				$('#td_mck').html(content_info.media_content_key)
 				var s_count = $('#td_count').html();
 				var cnt = (s_count == undefined || s_count == '') ? 0 : parseInt(s_count);
@@ -50,12 +52,16 @@ var ws_connect = function() {
 					var playInfo = '<tr>' + '<td>' + idx + '</td>' + '<td>' + b + '</td>' + '<td>' + t + '</td>' + '<td>' + p + '</td>' + '</tr>';
 					$('#table_block > tbody').append(playInfo);
 				}
-
 				$('#table_session > tbody > tr').remove();
 				var sessions = block_info.sessions;
 				$.each(sessions, function(idx, item) {
 					var sessionInfo = '<tr>' + '<td>' + item.block + '</td>' + '<td>' + item.start_time + '</td>' + '<td>' + item.play_time + '</td>' + '</tr>';
 					$('#table_session > tbody').append(sessionInfo);
+				});
+				$('#table_lms_users > tbody > tr').remove();
+				$.each(user_data, function(key, value) {
+					var userdata = '<tr>' + '<td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
+					$('#table_lms_users > tbody').append(userdata);
 				});
 			}
 		}

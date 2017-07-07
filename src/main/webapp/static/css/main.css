@@ -111,17 +111,31 @@ a.disabeld {
 	width: 100%;
 }
 
-.input-group > span.input-group-addon {
+.input-group>span.input-group-addon {
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	width: 180px;
-	text-align : left;
+	text-align: left;
 	padding-left: 10px;
 }
+
 .input-group {
 	width: 100%;
 }
 
 input[type="text"]:disabled {
 	background: #fff;
+}
+
+h4.media-heading { 
+	font-size : small;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+li .media { 
+	white-space: nowrap;
+}
+ul .media-list {
+	display: inline-block;
+	white-space: nowrap;
 }
