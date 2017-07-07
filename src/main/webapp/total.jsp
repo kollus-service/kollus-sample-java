@@ -1,13 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Kollus Sample for Jsp</title>
 <!-- css -->
-<link rel="stylesheet" href="static/external/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="static/external/bootstrap/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="static/external/jPages/jPages.css" type="text/css" media="all">
+<link rel="stylesheet"
+	href="static/external/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="static/external/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="static/external/jPages/jPages.css"
+	type="text/css" media="all">
 <link rel="stylesheet" href="static/css/main.css">
 </head>
 <body>
@@ -28,25 +32,31 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4>
-						<a role="button" data-toggle="collapse" href="#panel_upload" aria-expanded="false" aria-controls="panel_upload">Upload</a>
+						<a role="button" data-toggle="collapse" href="#panel_upload"
+							aria-expanded="false" aria-controls="panel_upload">Upload</a>
 					</h4>
 				</div>
 				<div id="panel_upload" class="panel-body collapse">
-					<select id="sb_category"></select>
+					<select id="sb_upload_category"></select>
 					<div class="col-md-6 col-xs-6 col-lg-6">
 						<h4>업로드 URL 가져오기</h4>
 						<div class="input-group">
-							<span class="input-group-addon">title</span> <input type="text" class="form-control" id="tb_upload_title" />
+							<span class="input-group-addon">title</span> <input type="text"
+								class="form-control" id="tb_upload_title" />
 						</div>
 						<div class="input-group">
-							<span class="input-group-addon">expire_time</span> <input type="number" class="form-control" id="tb_upload_expire_time" value="600" />
+							<span class="input-group-addon">expire_time</span> <input
+								type="number" class="form-control" id="tb_upload_expire_time"
+								value="600" />
 						</div>
 						<div class="checkbox">
-							<label> <input id="is_encryption_upload" type="checkbox"> 암호화 업로드
+							<label> <input id="is_encryption_upload" type="checkbox">
+								암호화 업로드
 							</label>
 						</div>
 						<div class="checkbox">
-							<label> <input id="is_audio_upload" type="checkbox"> 음원 파일 업로드
+							<label> <input id="is_audio_upload" type="checkbox">
+								음원 파일 업로드
 							</label>
 						</div>
 						<div class="checkbox">
@@ -54,36 +64,51 @@
 							</label>
 						</div>
 						<div class="btn-group">
-							<button type="button" id="btnUploadUrl" class="btn btn-primary">Get Upload Url</button>
+							<button type="button" id="btnUploadUrl" class="btn btn-primary">Get
+								Upload Url</button>
 							<button type="button" id="btnCancelUrl" class="btn btn-default">Cancel</button>
 						</div>
 						<div id="uploadUrl" class="well"></div>
 					</div>
 					<div class="col-md-6 col-xs-6 col-lg-6">
 						<h4>업로드 하기</h4>
-						<form id="form_upload" class="form" action="" enctype="multipart/form-data" method="post">
+						<form id="form_upload" class="form" action=""
+							enctype="multipart/form-data" method="post">
 							<div class="input-group">
-								<span class="input-group-addon">return_url</span> <input type="text" name="return_url" class="form-control" id="return_url" />
+								<span class="input-group-addon">return_url</span> <input
+									type="text" name="return_url" class="form-control"
+									id="return_url" />
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">disable_alert</span> <input type="number" name="disable_alert" class="form-control" id="disable_alert" value="1" min="0" max="1" />
+								<span class="input-group-addon">disable_alert</span> <input
+									type="number" name="disable_alert" class="form-control"
+									id="disable_alert" value="1" min="0" max="1" />
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">redirection_scope</span> <input type="text" name="redirection_scope" class="form-control" id="redirection_scope" value="no" />
+								<span class="input-group-addon">redirection_scope</span> <input
+									type="text" name="redirection_scope" class="form-control"
+									id="redirection_scope" value="no" />
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">accept</span> <input type="text" name="accept" class="form-control" id="accept" value="application/json" />
+								<span class="input-group-addon">accept</span> <input type="text"
+									name="accept" class="form-control" id="accept"
+									value="application/json" />
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">upload_file</span> <input type="file" name="upload-file" class="form-control" id="tb_file" />
+								<span class="input-group-addon">upload_file</span> <input
+									type="file" name="upload-file" class="form-control"
+									id="tb_file" />
 							</div>
 							<div class="btn-group">
 								<button type="submit" id="btnUpload" class="btn btn-primary">Upload</button>
-								<button type="button" id="btnUploadCancel" class="btn btn-default">Cancel</button>
+								<button type="button" id="btnUploadCancel"
+									class="btn btn-default">Cancel</button>
 							</div>
 						</form>
 						<div class="progress">
-							<div id="prog_upload" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
+							<div id="prog_upload" class="progress-bar" role="progressbar"
+								aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+								style="width: 0%;">0%</div>
 						</div>
 					</div>
 				</div>
@@ -91,22 +116,26 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4>
-						<a role="button" data-toggle="collapse" href="#panel_media_list" aria-expanded="false" aria-controls="panel_media_list">Media List</a>
+						<a role="button" data-toggle="collapse" href="#panel_media_list"
+							aria-expanded="false" aria-controls="panel_media_list">Media
+							List</a>
 					</h4>
 				</div>
 				<div id="panel_media_list" class="panel-body collapse">
 					<!-- 미디어 정보 -->
 					<div class="col-xs-7 col-md-7 col-lg-7">
-						<ul class="nav nav-tabs nav-pills nav-justified" id="nav_lib_channel">
-							<li role="presentation" class="active"><a href="#library" data-toggle="tab">Library</a></li>
+						<ul class="nav nav-tabs nav-pills nav-justified"
+							id="nav_lib_channel">
+							<li role="presentation" class="active"><a href="#library"
+								data-toggle="tab">Category</a></li>
 							<li role="presentation"><a href="#channel" data-toggle="tab">Channel</a></li>
 						</ul>
 						<div id="tabContent" class="tab-content">
 							<div id="library" class="tab-pane fade active in">
 								<!--  <label for="sb_library">라이브러리</label>-->
-								<select id="sb_library" class="form-control">
+								<select id="sb_media_category" class="form-control">
 								</select>
-								<ul id="ulLibrary" class="media-list">
+								<ul id="ulMediaCategory" class="media-list">
 								</ul>
 								<div class="holder"></div>
 							</div>
@@ -125,10 +154,11 @@
 							<iframe id="player" class="embed-responsive-item"> </iframe>
 						</div>
 						<div class="container-fluid">
-						
+
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<a role="button" data-toggle="collapse" href="#tb_url" aria-expanded="false" aria-controls="tb_url">Play URL</a>
+									<a role="button" data-toggle="collapse" href="#tb_url"
+										aria-expanded="false" aria-controls="tb_url">Play URL</a>
 								</div>
 								<div id="tb_url" class="panel-body collapse"></div>
 							</div>
@@ -136,16 +166,117 @@
 						<div class="container-fluid">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<a role="button" data-toggle="collapse" href="#tb_controller" aria-expanded="false" aria-controls="tb_controller">Controller</a>
+									<a role="button" data-toggle="collapse" href="#tb_controller"
+										aria-expanded="false" aria-controls="tb_controller">Controller</a>
 								</div>
 								<div id="tb_controller" class="panel-body collapse">
+									<div class="row">
+										<div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 noPadding">
+											<h5>Play</h5>
+											<div class="btn-group" id="g_playback">
+												<button id="back" class="btn btn-default">
+													<span class="glyphicon glyphicon-fast-backward"></span>
+												</button>
+												<button id="start" class="btn btn-default">
+													<span class="glyphicon glyphicon-play"></span>
+												</button>
+												<button id="pause" class="btn btn-default">
+													<span class="glyphicon glyphicon-pause"></span>
+												</button>
+												<button id="forward" class="btn btn-default">
+													<span class="glyphicon glyphicon-fast-forward"></span>
+												</button>
+											</div>
+										</div>
+										<div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 noPadding">
+											<h5>Speed</h5>
+											<div class="input-group" id="g_speed">
+												<span class="input-group-btn">
+													<button type="button" id="s_up" class="btn btn-default">
+														<span class="glyphicon glyphicon-chevron-up"></span>
+													</button>
+												</span> <span class="input-group-btn">
+													<button type="button" id="s_down" class="btn btn-default">
+														<span class="glyphicon glyphicon-chevron-down"></span>
+													</button>
+												</span> <input type="number" id="speed" class="form-control"
+													value="1.0" step="0.1" min="0.0" max="4.0" disabled />
+											</div>
+										</div>
+										<div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 noPadding">
+											<h5>Step</h5>
+											<div class="input-group" id="g_step">
+												<input type="number" id="step" class="form-control"
+													value="5" step="10" min="0" /> <span
+													class="input-group-btn">
+													<button type="button" id="step_get" class="btn btn-default">Get</button>
+												</span> <span class="input-group-btn">
+													<button type="button" id="step_set" class="btn btn-default">Set</button>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 noPadding">
+											<h5>Repeat</h5>
+											<div class="btn-group" id="g_repeat">
+												<button id="r_start" class="btn btn-default">
+													<span class="glyphicon glyphicon-triangle-bottom"></span>
+												</button>
+												<button id="repeat" class="btn btn-default">
+													<span class="glyphicon glyphicon-repeat"></span>
+												</button>
+												<button id="remove" class="btn btn-default">
+													<span class="glyphicon glyphicon-remove"></span>
+												</button>
+											</div>
+										</div>
+										<div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 noPadding">
+											<h5>Volume</h5>
+											<div class="input-group" id="g_volume">
+												<span class="input-group-btn">
+													<button type="button" id="v_up" class="btn btn-default">
+														<span class="glyphicon glyphicon-volume-up"></span>
+													</button>
+												</span> <span class="input-group-btn">
+													<button type="button" id="v_down" class="btn btn-default">
+														<span class="glyphicon glyphicon-volume-down"></span>
+													</button>
+												</span> <input type="number" id="volume" class="form-control"
+													value="50" step="0" min="0" max="100" disabled /> <span
+													class="input-group-btn">
+													<button type="button" id="mute" class="btn btn-default">
+														<span class="glyphicon glyphicon-volume-off"></span>
+													</button>
+												</span>
+											</div>
+										</div>
+										<div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 noPadding">
+											<h5>Control Visiblity</h5>
+											<div class="input-group" id="g_control_visible">
+												<span class="input-group-btn">
+													<button type="button" id="show_control"
+														class="btn btn-default">
+														<span class="glyphicon glyphicon-collapse-up"></span>
+													</button>
+												</span> <span class="input-group-btn">
+													<button type="button" id="hide_control"
+														class="btn btn-default">
+														<span class="glyphicon glyphicon-collapse-down"></span>
+													</button>
+												</span> <input type="text" id="control_visible"
+													class="form-control" disabled />
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="container-fluid">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<a role="button" data-toggle="collapse" href="#divlms" aria-expanded="false" aria-controls="divlms">LMS</a>
+									<a role="button" data-toggle="collapse" href="#divlms"
+										aria-expanded="false" aria-controls="divlms">LMS</a>
 								</div>
 								<div id="divlms" class="panel-body collapse">
 									<div class="table-responsive">
@@ -181,7 +312,9 @@
 										</table>
 									</div>
 									<h4>
-										<a role="button" data-toggle="collapse" href="#div_block" aria-expanded="false" aria-controls="div_block">Block Info</a>
+										<a role="button" data-toggle="collapse" href="#div_block"
+											aria-expanded="false" aria-controls="div_block">Block
+											Info</a>
 									</h4>
 									<div id="div_block" class="table-responsive collapse">
 										<table id="table_block" class="table">
@@ -198,7 +331,9 @@
 										</table>
 									</div>
 									<h4>
-										<a role="button" data-toggle="collapse" href="#div_session" aria-expanded="false" aria-controls="div_session">Session Info</a>
+										<a role="button" data-toggle="collapse" href="#div_session"
+											aria-expanded="false" aria-controls="div_session">Session
+											Info</a>
 									</h4>
 									<div id="div_session" class="table-responsive collapse">
 										<table id="table_session" class="table">
@@ -222,7 +357,8 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4>
-						<a role="button" data-toggle="collapse" href="#panel_log" aria-expanded="false" aria-controls="panel_log">Logs</a>
+						<a role="button" data-toggle="collapse" href="#panel_log"
+							aria-expanded="false" aria-controls="panel_log">Logs</a>
 					</h4>
 				</div>
 				<div id="panel_log" class="panel-body collapse">
@@ -245,11 +381,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="optionModalLabel" data-mck="">
+	<div class="modal fade" id="optionModal" tabindex="-1" role="dialog"
+		aria-labelledby="optionModalLabel" data-mck="">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-lable="Close">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-lable="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="optionModalLabel">Player Options</h4>
@@ -257,8 +395,11 @@
 				<div class="modal-body">
 					<div class="btn-group btn-group-justified" role="group">
 						<div class="btn-group">
-							<button id="btn_autoplay" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="btn-span-ellipsis" >Autoplay</span> <span class="caret"></span>
+							<button id="btn_autoplay" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<span class="btn-span-ellipsis">Autoplay</span> <span
+									class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
 								<li><a>Autoplay On</a></li>
@@ -266,8 +407,10 @@
 							</ul>
 						</div>
 						<div class="btn-group">
-							<button id="btn_mute" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="btn-span-ellipsis" >Mute</span> <span class="caret"></span>
+							<button id="btn_mute" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<span class="btn-span-ellipsis">Mute</span> <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
 								<li><a>Mute On</a></li>
@@ -275,8 +418,11 @@
 							</ul>
 						</div>
 						<div class="btn-group">
-							<button id="btn_download" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="btn-span-ellipsis" >Download</span> <span class="caret"></span>
+							<button id="btn_download" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<span class="btn-span-ellipsis">Download</span> <span
+									class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
 								<li><a>Download On</a></li>
@@ -284,8 +430,11 @@
 							</ul>
 						</div>
 						<div class="btn-group">
-							<button id="btn_force_exculsive_player" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="btn-span-ellipsis" >force_exculsive_player</span> <span class="caret"></span>
+							<button id="btn_force_exculsive_player" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<span class="btn-span-ellipsis">force_exculsive_player</span> <span
+									class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
 								<li><a>force_exculsive_player On</a></li>
@@ -293,8 +442,11 @@
 							</ul>
 						</div>
 						<div class="btn-group">
-							<button id="btn_play_downloaded_file" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="btn-span-ellipsis" >play_downloaded_file</span> <span class="caret"></span>
+							<button id="btn_play_downloaded_file" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<span class="btn-span-ellipsis">play_downloaded_file</span> <span
+									class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
 								<li><a>play_downloaded_file On</a></li>
@@ -303,10 +455,13 @@
 						</div>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">Title</span> <input type="text" id="input_title" class="form-control">
+						<span class="input-group-addon">Title</span> <input type="text"
+							id="input_title" class="form-control">
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">Start Time with Popup</span> <input type="text" id="input_t" class="form-control" value="0"> <span class="input-group-btn">
+						<span class="input-group-addon">Start Time with Popup</span> <input
+							type="text" id="input_t" class="form-control" value="0">
+						<span class="input-group-btn">
 							<button type="button" class="btn btn-default num-up">
 								<span class="glyphicon glyphicon-menu-up"></span>
 							</button>
@@ -316,7 +471,9 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">Start Time without Popup</span> <input type="text" id="input_s" class="form-control" value="0"> <span class="input-group-btn">
+						<span class="input-group-addon">Start Time without Popup</span> <input
+							type="text" id="input_s" class="form-control" value="0">
+						<span class="input-group-btn">
 							<button type="button" class="btn btn-default num-up">
 								<span class="glyphicon glyphicon-menu-up"></span>
 							</button>
@@ -326,7 +483,9 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">Brightness</span> <input type="text" id="input_brightness" class="form-control" value="0"> <span class="input-group-btn">
+						<span class="input-group-addon">Brightness</span> <input
+							type="text" id="input_brightness" class="form-control" value="0">
+						<span class="input-group-btn">
 							<button type="button" class="btn btn-default num-up">
 								<span class="glyphicon glyphicon-menu-up"></span>
 							</button>
@@ -336,7 +495,9 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">Constrast</span> <input type="text" id="input_constrast" class="form-control" value="0"> <span class="input-group-btn">
+						<span class="input-group-addon">Constrast</span> <input
+							type="text" id="input_constrast" class="form-control" value="0">
+						<span class="input-group-btn">
 							<button type="button" class="btn btn-default num-up">
 								<span class="glyphicon glyphicon-menu-up"></span>
 							</button>
@@ -346,7 +507,9 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">Saturation</span> <input type="text" id="input_saturation" class="form-control" value="0"> <span class="input-group-btn">
+						<span class="input-group-addon">Saturation</span> <input
+							type="text" id="input_saturation" class="form-control" value="0">
+						<span class="input-group-btn">
 							<button type="button" class="btn btn-default num-up">
 								<span class="glyphicon glyphicon-menu-up"></span>
 							</button>
@@ -356,14 +519,22 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">mobile_return_url</span> <input type="text" id="input_mobile_return_url" class="form-control valid-path" value="">
+						<span class="input-group-addon">mobile_return_url</span> <input
+							type="text" id="input_mobile_return_url"
+							class="form-control valid-path" value="">
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">mobile_folder_download</span> <input type="text" id="input_mobile_folder_download" class="form-control" value="">
+						<span class="input-group-addon">mobile_folder_download</span> <input
+							type="text" id="input_mobile_folder_download"
+							class="form-control" value="">
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">wmode</span> <input type="text" id="input_wmode" class="form-control"> <span class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="input-group-addon">wmode</span> <input type="text"
+							id="input_wmode" class="form-control"> <span
+							class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
 								wmode <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
@@ -376,8 +547,12 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">pc_player_version</span> <input type="text" id="input_pc_player_version" class="form-control"> <span class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="input-group-addon">pc_player_version</span> <input
+							type="text" id="input_pc_player_version" class="form-control">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
 								Version <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
@@ -388,8 +563,12 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">player_version</span> <input type="text" id="input_player_version" class="form-control"> <span class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="input-group-addon">player_version</span> <input
+							type="text" id="input_player_version" class="form-control">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
 								Version <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
@@ -401,10 +580,14 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">pc_folder_download</span> <input type="text" id="input_pc_folder_download" class="form-control" value="">
+						<span class="input-group-addon">pc_folder_download</span> <input
+							type="text" id="input_pc_folder_download" class="form-control"
+							value="">
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">buffer</span> <input type="text" id="input_buffer" class="form-control" value="0"> <span class="input-group-btn">
+						<span class="input-group-addon">buffer</span> <input type="text"
+							id="input_buffer" class="form-control" value="0"> <span
+							class="input-group-btn">
 							<button type="button" class="btn btn-default num-up">
 								<span class="glyphicon glyphicon-menu-up"></span>
 							</button>
@@ -414,14 +597,23 @@
 						</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon"> <input type="checkbox" class="form-control" id="input_show_controls_paused"></span> <span class="input-group-addon">show_controls_paused</span>
+						<span class="input-group-addon"> <input type="checkbox"
+							class="form-control" id="input_show_controls_paused"></span> <span
+							class="input-group-addon">show_controls_paused</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon"> <input type="checkbox" class="form-control" id="input_show_poster_ended"></span> <span class="input-group-addon">show_poster_ended</span>
+						<span class="input-group-addon"> <input type="checkbox"
+							class="form-control" id="input_show_poster_ended"></span> <span
+							class="input-group-addon">show_poster_ended</span>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon">overlay_button_position</span> <input type="text" id="input_overlay_button_position" class="form-control" value=""> <span class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="input-group-addon">overlay_button_position</span> <input
+							type="text" id="input_overlay_button_position"
+							class="form-control" value=""> <span
+							class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
 								Position <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
@@ -441,123 +633,187 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="policyModal" tabindex="-1" role="dialog" aria-labelledby="policyModalLabel" data-mck="default">
+	<div class="modal fade" id="policyModal" tabindex="-1" role="dialog"
+		aria-labelledby="policyModalLabel" data-mck="default">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-lable="Close">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-lable="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="policyModalLabel">Callback Policy</h4>
 				</div>
 				<div class="modal-body">
 					<ul class="nav nav-tabs nav-pills nav-justified" id="nav_policy">
-						<li role="presentation" class="active"><a href="#drmcallback" data-toggle="tab">DRM</a></li>
-						<li role="presentation"><a href="#playcallback" data-toggle="tab">PLAY</a></li>
+						<li role="presentation" class="active"><a href="#drmcallback"
+							data-toggle="tab">DRM</a></li>
+						<li role="presentation"><a href="#playcallback"
+							data-toggle="tab">PLAY</a></li>
 					</ul>
 					<div id="tabContent" class="tab-content">
 						<div id="drmcallback" class="tab-pane fade active in">
 							<h4>Kind 1</h4>
 							<div class="input-group">
-								<span class="input-group-addon">result </span> <input type="number" id="tb_drm_k1_result" class="form-control" value="1" min="0" max="1">
+								<span class="input-group-addon">result </span> <input
+									type="number" id="tb_drm_k1_result" class="form-control"
+									value="1" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_date (s) </span> <input type="number" id="tb_drm_k1_expiration_date" class="form-control" value="3600" min="0">
+								<span class="input-group-addon">expiration_date (s) </span> <input
+									type="number" id="tb_drm_k1_expiration_date"
+									class="form-control" value="3600" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_count (횟수) </span> <input type="number" id="tb_drm_k1_expiration_count" class="form-control" value="0" min="0">
+								<span class="input-group-addon">expiration_count (횟수) </span> <input
+									type="number" id="tb_drm_k1_expiration_count"
+									class="form-control" value="0" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_playtime (s) </span> <input type="number" id="tb_drm_k1_expiration_playtime" class="form-control" value="0" min="0">
+								<span class="input-group-addon">expiration_playtime (s) </span>
+								<input type="number" id="tb_drm_k1_expiration_playtime"
+									class="form-control" value="0" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">message </span> <input type="text" id="tb_drm_k1_message" class="form-control" value="">
+								<span class="input-group-addon">message </span> <input
+									type="text" id="tb_drm_k1_message" class="form-control"
+									value="">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_refresh_popup </span> <input type="number" id="tb_drm_k1_expiration_refresh_popup" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">expiration_refresh_popup
+								</span> <input type="number" id="tb_drm_k1_expiration_refresh_popup"
+									class="form-control" value="0" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">vmcheck </span> <input type="number" id="tb_drm_k1_vmcheck" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">vmcheck </span> <input
+									type="number" id="tb_drm_k1_vmcheck" class="form-control"
+									value="0" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">check_abuse </span> <input type="number" id="tb_drm_k1_check_abuse" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">check_abuse </span> <input
+									type="number" id="tb_drm_k1_check_abuse" class="form-control"
+									value="0" min="0" max="1">
 							</div>
 							<h4>Kind 2</h4>
 							<div class="input-group">
-								<span class="input-group-addon">result </span> <input type="number" id="tb_drm_k2_result" class="form-control" value="1" min="0" max="1">
+								<span class="input-group-addon">result </span> <input
+									type="number" id="tb_drm_k2_result" class="form-control"
+									value="1" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">message </span> <input type="text" id="tb_drm_k2_message" class="form-control" value="">
+								<span class="input-group-addon">message </span> <input
+									type="text" id="tb_drm_k2_message" class="form-control"
+									value="">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">content_delete</span> <input type="number" id="tb_drm_k2_content_delete" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">content_delete</span> <input
+									type="number" id="tb_drm_k2_content_delete"
+									class="form-control" value="0" min="0" max="1">
 							</div>
 							<h4>Kind 3</h4>
 							<div class="input-group">
-								<span class="input-group-addon">result </span> <input type="number" id="tb_drm_k3_result" class="form-control" value="1" min="0" max="1">
+								<span class="input-group-addon">result </span> <input
+									type="number" id="tb_drm_k3_result" class="form-control"
+									value="1" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">content_expired</span> <input type="number" id="tb_drm_k3_content_expired" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">content_expired</span> <input
+									type="number" id="tb_drm_k3_content_expired"
+									class="form-control" value="0" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">content_delete</span> <input type="number" id="tb_drm_k3_content_delete" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">content_delete</span> <input
+									type="number" id="tb_drm_k3_content_delete"
+									class="form-control" value="0" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">content_expire_reset</span> <input type="number" id="tb_drm_k3_content_expire_reset" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">content_expire_reset</span> <input
+									type="number" id="tb_drm_k3_content_expire_reset"
+									class="form-control" value="0" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_date (s) </span> <input type="number" id="tb_drm_k3_expiration_date" class="form-control" value="3600" min="0">
+								<span class="input-group-addon">expiration_date (s) </span> <input
+									type="number" id="tb_drm_k3_expiration_date"
+									class="form-control" value="3600" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_count (횟수) </span> <input type="number" id="tb_drm_k3_expiration_count" class="form-control" value="0" min="0">
+								<span class="input-group-addon">expiration_count (횟수) </span> <input
+									type="number" id="tb_drm_k3_expiration_count"
+									class="form-control" value="0" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_playtime (s) </span> <input type="number" id="tb_drm_k3_expiration_playtime" class="form-control" value="0" min="0">
+								<span class="input-group-addon">expiration_playtime (s) </span>
+								<input type="number" id="tb_drm_k3_expiration_playtime"
+									class="form-control" value="0" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">message </span> <input type="text" id="tb_drm_k3_message" class="form-control" value="">
+								<span class="input-group-addon">message </span> <input
+									type="text" id="tb_drm_k3_message" class="form-control"
+									value="">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">check_abuse </span> <input type="number" id="tb_drm_k3_check_abuse" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">check_abuse </span> <input
+									type="number" id="tb_drm_k3_check_abuse" class="form-control"
+									value="0" min="0" max="1">
 							</div>
 						</div>
 						<div id="playcallback" class="tab-pane fade active">
 							<h4>Kind 1</h4>
 							<div class="input-group">
-								<span class="input-group-addon">result </span> <input type="number" id="tb_play_k1_result" class="form-control" value="1" min="0" max="1">
+								<span class="input-group-addon">result </span> <input
+									type="number" id="tb_play_k1_result" class="form-control"
+									value="1" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_date (s) </span> <input type="number" id="tb_play_k1_expiration_date" class="form-control" value="3600" min="0">
+								<span class="input-group-addon">expiration_date (s) </span> <input
+									type="number" id="tb_play_k1_expiration_date"
+									class="form-control" value="3600" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">expiration_playtime (s) </span> <input type="number" id="tb_play_k1_expiration_playtime" class="form-control" value="0" min="0">
+								<span class="input-group-addon">expiration_playtime (s) </span>
+								<input type="number" id="tb_play_k1_expiration_playtime"
+									class="form-control" value="0" min="0">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">message </span> <input type="text" id="tb_play_k1_message" class="form-control" value="">
+								<span class="input-group-addon">message </span> <input
+									type="text" id="tb_play_k1_message" class="form-control"
+									value="">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">vmcheck </span> <input type="number" id="tb_play_k1_vmcheck" class="form-control" value="0" min="0" max="1"/>
+								<span class="input-group-addon">vmcheck </span> <input
+									type="number" id="tb_play_k1_vmcheck" class="form-control"
+									value="0" min="0" max="1" />
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">disable_tvout</span> <input type="number" id="tb_play_k1_disable_tvout" class="form-control" value="0" min="0" max="1"/>
+								<span class="input-group-addon">disable_tvout</span> <input
+									type="number" id="tb_play_k1_disable_tvout"
+									class="form-control" value="0" min="0" max="1" />
 							</div>
-							
+
 							<div class="input-group">
-								<span class="input-group-addon">start_time </span> <input type="text" id="tb_play_k1_start_time" class="form-control"/>
+								<span class="input-group-addon">start_time </span> <input
+									type="text" id="tb_play_k1_start_time" class="form-control" />
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">end_time </span> <input type="text" id="tb_play_k1_end_time" class="form-control" />
+								<span class="input-group-addon">end_time </span> <input
+									type="text" id="tb_play_k1_end_time" class="form-control" />
 							</div>
-							
+
 							<h4>Kind 3</h4>
 							<div class="input-group">
-								<span class="input-group-addon">result </span> <input type="number" id="tb_play_k3_result" class="form-control" value="1" min="0" max="1">
+								<span class="input-group-addon">result </span> <input
+									type="number" id="tb_play_k3_result" class="form-control"
+									value="1" min="0" max="1">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">message </span> <input type="text" id="tb_play_k3_message" class="form-control" value="">
+								<span class="input-group-addon">message </span> <input
+									type="text" id="tb_play_k3_message" class="form-control"
+									value="">
 							</div>
 							<div class="input-group">
-								<span class="input-group-addon">content_expired</span> <input type="number" id="tb_play_k3_content_expired" class="form-control" value="0" min="0" max="1">
+								<span class="input-group-addon">content_expired</span> <input
+									type="number" id="tb_play_k3_content_expired"
+									class="form-control" value="0" min="0" max="1">
 							</div>
 						</div>
 					</div>
@@ -569,10 +825,14 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="static/external/jquery/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="static/external/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="static/external/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript"
+		src="static/external/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/external/jPages/jPages.js"></script>
-	<script type="text/javascript" src="static/external/kollus/kollus.videogateway-controller.min.js"></script>
-	<script type="text/javascript" src="static/js/main.js"></script>
+	<script type="text/javascript"
+		src="static/external/kollus/kollus.videogateway-controller.min.js"></script>
+	<script type="text/javascript" src="static/js/common.js"></script>
+	<script type="text/javascript" src="static/js/total.js"></script>
 </body>
 </html>
