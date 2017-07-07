@@ -35,12 +35,12 @@ import com.kollus.kr.kollus_sample_java.types.PlaySection;
 import com.kollus.kr.kollus_sample_java.util.HttpUtil;
 import com.kollus.kr.kollus_sample_java.util.KollusResEnc;
 import com.kollus.kr.kollus_sample_java.util.StringUtil;
+
 /**
- * 콜백 서블릿
- * DRM, PLAY, LMS 등 분기로 처리함
- * kollus - 콜백 등록시
+ * 콜백 서블릿 DRM, PLAY, LMS 등 분기로 처리함 kollus - 콜백 등록시
  * http://localhost/callbak/[lms|mdrm|pdrm|play|upload|transcoding|update|add|delete]
  * 콜백 유형에 대한 정보는 CallbackMethod 를 참조함
+ * 
  * @author Yang Hyeon Deok
  * @since 2017. 7. 6.
  */
@@ -99,7 +99,16 @@ public class CallbackServlet extends HttpServlet {
 
 		switch (callbackMethod) {
 		case LMS:
-			requestBody = request.getParameter("json_data");
+				HashMap<String, Object> lmsRequestMap = new HashMap<String, Object>();
+				HashMap<String, String[]> parameterMap = (HashMap<String, String[]>) request.getParameterMap(); 
+				
+				for(Entry<String, String[]> entry : parameterMap.entrySet()){
+					lmsRequestMap.put(entry.getKey(), entry.getValue()[0]);
+				}
+				HashMap<String, Object> lmsResponseMap =new HashMap<String, Object>(); 
+				lmsResponseMap.put("user", lmsRequestMap);
+				lmsResponseMap.put("json_data", request.getParameter("json_data"));
+				requestBody = mapper.writeValueAsString(lmsResponseMap);
 			break;
 		case UPLOAD:
 		case TRANSCODING:
@@ -313,7 +322,7 @@ public class CallbackServlet extends HttpServlet {
 		}
 		return result;
 	}
-	
+
 	private HashMap<String, Object> getTestPolicyMap(String policy, int kind) throws IOException {
 		HashMap<String, Object> result = JsonPath.read(policy, String.format("$.k%d", kind));
 		return result;

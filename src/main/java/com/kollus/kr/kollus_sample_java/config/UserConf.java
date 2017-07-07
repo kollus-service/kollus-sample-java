@@ -66,6 +66,9 @@ public class UserConf {
 			}
 		}
 	}
+	public static void reset() throws IOException{
+		instance = new UserConf();
+	}
 	
 	
 	

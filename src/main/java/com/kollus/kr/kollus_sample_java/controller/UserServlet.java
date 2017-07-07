@@ -23,6 +23,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.jayway.jsonpath.JsonPath;
+import com.kollus.kr.kollus_sample_java.config.UserConf;
 import com.kollus.kr.kollus_sample_java.util.HttpUtil;
 
 /**
@@ -87,6 +88,7 @@ public class UserServlet extends HttpServlet {
 				Map<String, String> value = mapper.readValue(body, new TypeReference<Map<String, String>>() {});
 				prop.putAll(value);
 				prop.store(out, null);
+				UserConf.reset();
 				result = "{\"result\":\"ok\"}";
 			}
 		} catch (Exception e) {
