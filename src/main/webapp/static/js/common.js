@@ -57,7 +57,7 @@ var saveUserInfo = function(loadUserInfo, callback) {
 		}
 	});
 }
-var getLibrary = function(callback) {
+var getCategory = function(callback) {
 	$.ajax({
 		url : 'category',
 		type : 'get',
@@ -89,12 +89,12 @@ var getChannel = function(callback) {
 		}
 	});
 }
-var getLibraryItem = function(categoryKey, page, callback) {
+var getCategoryItem = function(categoryKey, page, callback) {
 	var _url = 'media/category/' + categoryKey;
 	var data = {};
 	data.page = page;
 	$.ajax({
-		url : url,
+		url : _url,
 		type : 'get',
 		data : data,
 		success : function(res) {
