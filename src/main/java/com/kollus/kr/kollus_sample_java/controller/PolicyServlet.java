@@ -35,7 +35,6 @@ import com.kollus.kr.kollus_sample_java.util.HttpUtil;
 @WebServlet("/policy/*")
 public class PolicyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static Logger logger = LoggerFactory.getLogger(PolicyServlet.class);
     private HttpUtil httpUtil = new HttpUtil();
     /**
      * @see HttpServlet#HttpServlet()
@@ -60,6 +59,7 @@ public class PolicyServlet extends HttpServlet {
 		if(!file.exists()){
 			file = new File(fileName.replace(subPaths[1], "default"));
 		}
+		@SuppressWarnings("resource")
 		BufferedReader in  = new BufferedReader(new FileReader(file));
 		StringBuilder fileContent = new StringBuilder();
 		String line = null;
@@ -77,8 +77,6 @@ public class PolicyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestBody = null;
-		String responseBody = null;
-		
 		String[] subPaths = null;
 		if (request.getPathInfo() != null) {
 			subPaths = request.getPathInfo().split("/");
@@ -87,14 +85,14 @@ public class PolicyServlet extends HttpServlet {
 		}
 		try {
 			requestBody = httpUtil.getBody(request);
+			if(requestBody == null && requestBody.trim().isEmpty())
+			{
+				response.setStatus(500);
+				return;
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		if(requestBody == null && requestBody.trim().isEmpty())
-		{
-			response.setStatus(500);
-			return;
 		}
 		HashMap<String, Object> policyMap = new HashMap<String, Object>();
 		HashMap<String, Object> policyDrmMap = new HashMap<String, Object>();
