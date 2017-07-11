@@ -14,11 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.jayway.jsonpath.JsonPath;
+import com.kollus.kr.kollus_sample_java.config.UrlConf;
 import com.kollus.kr.kollus_sample_java.config.UserConf;
 import com.kollus.kr.kollus_sample_java.util.HttpUtil;
 import com.kollus.kr.kollus_sample_java.util.JwtUtil;
@@ -35,14 +33,11 @@ public class MediaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(MediaServlet.class);
 
-	private UserConf userConf = null; 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public MediaServlet() {
 		super();
-		userConf = null;
-
 	}
 
 	/**
@@ -69,34 +64,24 @@ public class MediaServlet extends HttpServlet {
 		if (subPaths.length < 2) {
 			/* TODO /media/ */
 		} else if (subPaths.length == 2) {
-			if ("category".equals(subPaths[1]) || "channel".equals(subPaths[1])) {
-				_url = String.format("http://api.kr.kollus.com/0/media/%s/media_content?access_token=%s&per_page=%s",
-						subPaths[1], accessToken, page);
+			if ("category".equals(subPaths[1])){
+				_url = String.format(UrlConf.KOLLUS_LIBRARY_ALL_CONTENTS_URL, accessToken, page);
+			}
+			else if( "channel".equals(subPaths[1])) {
+				_url = String.format(UrlConf.KOLLUS_CHANNEL_ALL_CONTENTS_URL, accessToken, page);
 			} else {
 			}
 
-		} else if (subPaths.length == 3) {
-			if ("category".equals(subPaths[1])) {
-				_url = String.format(
-						"http://api.kr.kollus.com/0/media/category/media_content?access_token=%s&category_key=%s&per_page=%s",
-						accessToken, subPaths[2], page);
-			} else if ("channel".equals(subPaths[1])) {
-				_url = String.format(
-						"http://api.kr.kollus.com/0/media/channel/media_content?access_token=%s&channel_key=%s&per_page=%s",
-						accessToken, subPaths[2], page);
+		}
+		else if (subPaths.length == 3) {
+			if ("category".equals(subPaths[1])){
+				_url = String.format(UrlConf.KOLLUS_LIBRARY_CONTENTS_URL, accessToken, subPaths[2],page);
+			}
+			else if( "channel".equals(subPaths[1])) {
+				_url = String.format(UrlConf.KOLLUS_CHANNEL_CONTENTS_URL, accessToken, subPaths[2],page);
 			} else {
 			}
-		} else if (subPaths.length == 4) {
-			if ("category".equals(subPaths[1])) {
-				_url = String.format(
-						"http://api.kr.kollus.com/0/media/category/media_content?access_token=%s&category_key=%s&per_page=%s",
-						accessToken, subPaths[2], page);
-			} else if ("channel".equals(subPaths[1])) {
-				_url = String.format(
-						"http://api.kr.kollus.com/0/media/category/media_content?access_token=%s&channel_key=%s&per_page=%s",
-						accessToken, subPaths[2], page);
-			} else {
-			}
+
 		}
 		String result = null;
 		List<HashMap<String, Object>> resultMap = null;
@@ -122,6 +107,7 @@ public class MediaServlet extends HttpServlet {
 					categoryItem.put("category_key", item.get("category_key"));
 					categoryItem.put("poster_url", item.get("poster_url"));
 					categoryItem.put("snapshot_url", item.get("snapshot_url"));
+					@SuppressWarnings("unchecked")
 					List<HashMap<String, Object>> channels = (List<HashMap<String, Object>>) item.get("channels");
 					if (channels != null && channels.size() > 0) {
 						categoryItem.put("channels", item.get("channels"));

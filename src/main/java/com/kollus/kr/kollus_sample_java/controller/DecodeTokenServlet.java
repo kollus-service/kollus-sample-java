@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import com.kollus.kr.kollus_sample_java.config.UrlConf;
-import com.kollus.kr.kollus_sample_java.config.UserConf;
 import com.kollus.kr.kollus_sample_java.util.HttpUtil;
 import com.kollus.kr.kollus_sample_java.util.JwtUtil;
 /**

@@ -11,6 +11,8 @@ public class UrlConf {
 	public static final String KOLLUS_ENCRYPT_URL="http://api.kr.kollus.com/0/media_auth/media_token/get_kollus_encrypt.json";
 	public static final String KOLLUS_CATEGORY_URL="http://api.kr.kollus.com/0/media/category/index";
 	public static final String KOLLUS_CHANNEL_URL="http://api.kr.kollus.com/0/media/channel/index";
+	public static final String KOLLUS_LIBRARY_ALL_CONTENTS_URL="http://api.kr.kollus.com/0/media/library/media_content?access_token=%s&per_page=%s";
+	public static final String KOLLUS_CHANNEL_ALL_CONTENTS_URL="http://api.kr.kollus.com/0/media/channel/media_content?access_token=%s&per_page=%s";
 	public static final String KOLLUS_LIBRARY_CONTENTS_URL="http://api.kr.kollus.com/0/media/library/media_content?access_token=%s&category_key=%s&per_page=%s";
 	public static final String KOLLUS_CHANNEL_CONTENTS_URL="http://api.kr.kollus.com/0/media/channel/media_content?access_token=%s&channel_key=%s&per_page=%s";
 }
