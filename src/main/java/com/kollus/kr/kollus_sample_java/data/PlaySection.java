@@ -1,4 +1,4 @@
-package com.kollus.kr.kollus_sample_java.types;
+package com.kollus.kr.kollus_sample_java.data;
 /**
  * play callback playsection vo
  * @author Yang Hyeon Deok
