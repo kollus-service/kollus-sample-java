@@ -85,7 +85,7 @@ $(document).ready(function() {
 	$('#sb_channel').change(function() {
 		var channelKey = $('#sb_channel option:selected').val();
 		var txtChannel = $('#sb_channel option:selected').text();
-		var start = txtChannel.indexOf('(');
+		var start = txtChannel.lastIndexOf('(');
 		var end = txtChannel.indexOf(')', start + 1);
 		var cntChannel = txtChannel.substring(start + 1, end);
 		getChannelItem(channelKey, cntChannel, function(res) {
