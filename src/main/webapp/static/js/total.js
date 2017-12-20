@@ -762,7 +762,7 @@ $(document).ready(function() {
 	$('#btnUploadUrl').on('click', function() {
 		var expire_time = $('#tb_upload_expire_time').val();
 		var upload_title = $('#tb_upload_title').val();
-		var category_key = $('#sb_category option:selected').val();
+		var category_key = $('#sb_upload_category option:selected').val();
 		var is_encryption_upload = $('#is_encryption_upload').prop("checked");
 		var is_audio_upload = $('#is_audio_upload').prop("checked");
 		
