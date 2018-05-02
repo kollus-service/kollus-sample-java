@@ -188,7 +188,7 @@ public class DrmCallbackResponse {
 			map.put("start_at", getStartAt());
 			map.put("content_expired", isContentExpired()? 1: 0);
 			map.put("content_delete", isContentDelete()? 1: 0);
-			map.put("content_expired_reset", isContentExpireReset()? 1: 0);
+			map.put("content_expire_reset", isContentExpireReset()? 1: 0);
 			if (getExpirationDate() > 0) {
 				map.put("expiration_date", getExpirationDate());
 			}
