@@ -6,19 +6,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map.Entry;
-
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.apache.tomcat.util.codec.binary.StringUtils;
-
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTCreator;
-import com.auth0.jwt.JWTCreator.Builder;
-import com.auth0.jwt.algorithms.Algorithm;
 import com.kollus.kr.kollus_sample_java.config.UrlConf;
 /**
  * JWT 유틸 클래스
@@ -106,9 +97,7 @@ public class JwtUtil {
 		
 		final Mac mac = Mac.getInstance("HmacSHA256");
 		mac.init(new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
-		byte[] newSignatureBytes = mac.doFinal(contentBytes);
-		
-		
+		byte[] newSignatureBytes = mac.doFinal(contentBytes);	
 		return MessageDigest.isEqual(newSignatureBytes, signatureBytes);
 		
 	}
