@@ -68,6 +68,14 @@ public class JwtUtil {
 	public String getPlayUrl(String host, String token, String userKey){
 		return String.format("%s/s?jwt=%s&custom_key=%s", host, token, userKey);
 	}
+	
+	public String getHttpKollusPlayUrl(String token, String userKey){
+		return String.format("http://v.kr.kollus.com/s?jwt=%s&custom_key=%s", token, userKey);
+	}
+	public String getHttpsKollusPlayUrl(String token, String userKey){
+		return String.format("https://v.kr.kollus.com/s?jwt=%s&custom_key=%s", token, userKey);
+	}
+	
 
 	public String getPlayUrlByMediaToken(String mediaToken){
 		return String.format(UrlConf.KOLLUS_URL + "/s?token=%s", mediaToken);
