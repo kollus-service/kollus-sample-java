@@ -197,7 +197,7 @@ $(document).ready(function() {
 			var list_media = $('#ulChannel');
 			list_media.html('');
 			$.each(res, function(idx, item) {
-				var liItem = '<li class="media" data-url="' + item.jwt_play_url + '">' + '<div class="media-left"><img class="media-object" src="' + item.poster_url + '"></div>' + '<div class="media-body">' + '<h4 class="media-heading">' + item.title + '</h4>' + '</div>' + '</li>';
+				var liItem = '<li class="media" data-url="' + item.jwt_play_url + '">' + '<div class="media-left"><img width="52px" height="52px" class="media-object" src="' + item.poster_url + '"></div>' + '<div class="media-body">' + '<h4 class="media-heading">' + item.title + '</h4>' + '</div>' + '</li>';
 				list_media.append(liItem);
 			});
 			pagination('ulChannel');

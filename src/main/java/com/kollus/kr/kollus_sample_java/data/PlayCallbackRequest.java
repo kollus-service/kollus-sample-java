@@ -77,7 +77,7 @@ public class PlayCallbackRequest {
 		String device_name = map.containsKey("device_name") ? map.get("device_name").toString() : "";
 		String hardware_id = map.containsKey("hardware_id") ? map.get("hardware_id").toString() : "";
 		String media_content_key = map.containsKey("media_content_key") ? map.get("media_content_key").toString() : "";
-		HashMap<String, String> uservalues = map.containsKey("uservalues") ? JsonPath.read(URLDecoder.decode(map.get("uservalues").toString(), "UTF-8"),
+		HashMap<String, String> uservalues = map.containsKey("uservalues") ? (HashMap<String, String>) JsonPath.read(URLDecoder.decode(map.get("uservalues").toString(), "UTF-8"),
 				"$") : null;
 		return new PlayCallbackRequest(kind, client_user_id, player_id, device_name, hardware_id, media_content_key, uservalues);
 	}

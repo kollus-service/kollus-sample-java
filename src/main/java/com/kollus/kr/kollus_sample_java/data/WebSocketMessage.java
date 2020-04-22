@@ -41,7 +41,7 @@ public class WebSocketMessage {
 		this.responseJson = responseJson;
 	}
 	public String toMessage() throws JsonProcessingException{
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("kind", kind);
 		map.put("type", type);
 		map.put("time", time);

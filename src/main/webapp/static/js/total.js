@@ -564,7 +564,7 @@ $(document).ready(function() {
 			var list_media = $('#ulMediaCategory');
 			list_media.html('');
 			$.each(res, function(idx, item) {
-				var liItem = '<li class="media">' + '<div class="media-left"><img class="media-object" src="' + item.poster_url + '"></div>' + '<div class="media-body">' + '<h4 class="media-heading">' + item.title + '</h4>' + '</div>' + '</li>';
+				var liItem = '<li class="media">' + '<div class="media-left"><img class="media-object" width="80px" height="80px" src="' + item.poster_url + '"></div>' + '<div class="media-body">' + '<h4 class="media-heading">' + item.title + '</h4>' + '</div>' + '</li>';
 				list_media.append(liItem);
 			});
 			pagination('ulMediaCategory');
@@ -580,7 +580,7 @@ $(document).ready(function() {
 			var list_media = $('#ulChannel');
 			list_media.html('');
 			$.each(res, function(idx, item) {
-				var liItem = '<li class="media">' + '<div class="media-left"><img class="media-object" src="' + item.poster_url + '"></div>' + '<div class="media-body">' + '<h4 class="media-heading">' + item.title + '</h4>' + '<div class="btn-group">' + '<button role="button" class="btn btn-primary play_url" data-url="' + item.jwt_play_url + '" data-mck="' + item.media_content_key + '">Play-JWT</button>' + '<button role="button" class="btn btn-primary options" data-toggle="modal" data-mck="' + item.media_content_key + ' "data-tartget="#optionModal">Options</button>' + '<button role="button" class="btn btn-primary policy" data-toggle="modal" data-mck="' + item.media_content_key + ' "data-tartget="#policyModal">Policy</button>' + '</div>' + '<div class="input-group">' + '<div class="input-group-addon">Option</div>' + '<input class="form-control" type="text" id="' + item.media_content_key + '"/>' + '</div>' + '</div>' + '</li>';
+				var liItem = '<li class="media">' + '<div class="media-left"><img class="media-object" width="80px" height="80px" src="' + item.poster_url + '"></div>' + '<div class="media-body">' + '<h4 class="media-heading">' + item.title + '</h4>' + '<div class="btn-group">' + '<button role="button" class="btn btn-primary play_url" data-url="' + item.jwt_play_url + '" data-mck="' + item.media_content_key + '">Play-JWT</button>' + '<button role="button" class="btn btn-primary options" data-toggle="modal" data-mck="' + item.media_content_key + ' "data-tartget="#optionModal">Options</button>' + '<button role="button" class="btn btn-primary policy" data-toggle="modal" data-mck="' + item.media_content_key + ' "data-tartget="#policyModal">Policy</button>' + '</div>' + '<div class="input-group">' + '<div class="input-group-addon">Option</div>' + '<input class="form-control" type="text" id="' + item.media_content_key + '"/>' + '</div>' + '</div>' + '</li>';
 				list_media.append(liItem);
 			});
 			pagination('ulChannel');

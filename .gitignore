@@ -7,3 +7,5 @@
 Procfile
 app.json
 system.properties
+kollus-sample-servlet.iml
+/.idea

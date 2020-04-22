@@ -89,7 +89,7 @@ public class PlayCallbackResponse {
 	}
 
 	public HashMap<String, Object> toMapFromObject() {
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("result", isResult() ? 1 : 0);
 		if (getExpirationDate() > 0) {
 			map.put("expiration_date", getExpirationDate());

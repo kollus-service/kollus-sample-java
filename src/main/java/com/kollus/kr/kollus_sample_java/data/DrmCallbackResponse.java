@@ -155,7 +155,7 @@ public class DrmCallbackResponse {
 	}
 
 	public HashMap<String, Object> toMapFromObject() {
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("kind", kind);
 		map.put("result", isResult() ? 1 : 0);
 		map.put("media_content_key", getMediaContentKey());
