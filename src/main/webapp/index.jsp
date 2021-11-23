@@ -43,7 +43,7 @@
 			<a href="/total.jsp" class="list-group-item"> One Page Test</a> <a href="/jwt.jsp" class="list-group-item"> WebToken (JWT) Creator</a> <a href="/upload.jsp" class="list-group-item">Upload</a> <a href="/query.jsp" class="list-group-item">Video Gateway Query String</a> <a href="/player.jsp" class="list-group-item">Player Controller for javascript</a> <a href="/playcallback.jsp" class="list-group-item">Play Callback</a> <a href="/drmcallback.jsp" class="list-group-item">DRM Callback</a> <a href="/lmscallback.jsp" class="list-group-item">LMS Callback</a>
 		</div>
 	</div>
-	<script type="text/javascript" src="static/external/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="static/external/jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="static/external/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/external/jPages/jPages.js"></script>
 	<script type="text/javascript" src="static/external/kollus/kollus.videogateway-controller.min.js"></script>

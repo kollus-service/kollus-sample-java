@@ -91,7 +91,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="static/external/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="static/external/jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="static/external/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="static/external/jPages/jPages.js"></script>
 	<script type="text/javascript" src="static/external/kollus/kollus.videogateway-controller.min.js"></script>
