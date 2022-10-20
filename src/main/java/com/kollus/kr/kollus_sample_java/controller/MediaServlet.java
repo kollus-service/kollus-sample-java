@@ -132,7 +132,7 @@ public class MediaServlet extends HttpServlet {
 					channelItem.put("snapshot_url", item.get("snapshot_url"));
 					channelItem.put("media_content_key", item.get("media_content_key"));
 					channelItem.put("status", item.get("status"));
-					String host = "http://v.kr.kollus.com";
+					String host = "https://v.kr.kollus.com";
 					String mediaKeys = item.get("media_content_key").toString();
 					channelItem.put("jwt_play_url",
 							jwtUtil.getPlayUrl(host, userKey, accountKey, secretKey, 3600, mediaKeys));
