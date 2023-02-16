@@ -24,7 +24,7 @@ public class JwtTest {
 		try {
 			result = jwtUtil.createJwt(headerJson, payloadJson);
 			System.out.println(result);		
-			System.out.println(String.format("https://v.kr.kollus.com/s?jwt=%s&custom_key=81eb87d251c20fe426db57abdee59a2f19fe85b4c198544356fd14fe9a184aac027907ba03405cb89ebbcb6e979c07b80c31c1139c504ad3d7f996ba8cf94c6d", result));
+			System.out.println(String.format("https://v.kr.kollus.com/s?jwt=%s&custom_key=사용자키", result));
 		} catch (InvalidKeyException e) {
 			e.printStackTrace();
 		} catch (NoSuchAlgorithmException e) {
