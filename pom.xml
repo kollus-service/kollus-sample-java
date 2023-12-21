@@ -8,7 +8,7 @@
 	<artifactId>kollus-sample-servlet</artifactId>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tomcat.version>8.5.73</tomcat.version>
+		<tomcat.version>8.5.96</tomcat.version>
 		<tomcat.logging.version>8.5.2</tomcat.logging.version>
 		<slf4j.version>1.7.21</slf4j.version>
 		<!--<jackson.version>2.10.3</jackson.version>-->
