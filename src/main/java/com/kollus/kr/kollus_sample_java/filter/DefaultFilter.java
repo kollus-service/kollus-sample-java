@@ -14,18 +14,18 @@ public class DefaultFilter implements Filter {
 
 	private RequestDispatcher defaultRequestDispatcher;
 
-	@Override
+	
 	public void destroy() {
 	}
 
-	@Override
+	
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
 			throws IOException, ServletException {
 		this.defaultRequestDispatcher.forward(arg0, arg1);
 
 	}
 
-	@Override
+	
 	public void init(FilterConfig filterConfig) throws ServletException {
 		this.defaultRequestDispatcher = filterConfig.getServletContext().getNamedDispatcher("default");
 	}

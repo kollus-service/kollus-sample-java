@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CorsFilter implements Filter{
 	 public static String VALID_METHODS = "DELETE, HEAD, GET, OPTIONS, POST, PUT";
-	@Override
+	
 	public void destroy() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		 HttpServletRequest httpReq = (HttpServletRequest) req;
@@ -56,7 +56,7 @@ public class CorsFilter implements Filter{
 		
 	}
 
-	@Override
+	
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		
